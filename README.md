@@ -17,7 +17,7 @@
   - [CI/CD](#cicd)
 - [Where should i start](#where-should-i-start)
   - [What is Django](#what-is-django)
-    - [Simple app in Django](#simple-app-in-django)
+  - [Simple app in Django](#simple-app-in-django)
 
 
 
@@ -97,7 +97,7 @@ It doesn't matter where you start. What matter is that you start.
 - Fast Development, Extremely Popular, Free and Open Source, Flexible and Customisable
 - You can do from simple CMS to Social networks to AI (since it's Python)
 
-### Simple app in Django
+## Simple app in Django
 - Let's write a phone book app
 - It will let you add new contact
 - Search through them
