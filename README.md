@@ -98,8 +98,10 @@ It doesn't matter where you start. What matter is that you start.
 - You can do from simple CMS to Social networks to AI (since it's Python)
 
 ## Simple app in Django
-- Let's write a phone book app
+Let's write a phone book app
 - It will let you add new contact
+- Show a list of recorded items
+- You can extend it and add search functionality to it
 
 # Getting Started with Phone book app
 - Install [Python](https://www.python.org/)
