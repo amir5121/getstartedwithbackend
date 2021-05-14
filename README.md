@@ -100,7 +100,6 @@ It doesn't matter where you start. What matter is that you start.
 ## Simple app in Django
 - Let's write a phone book app
 - It will let you add new contact
-- Search through them
 
 # Getting Started with Phone book app
 - Install [Python](https://www.python.org/)
