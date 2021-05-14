@@ -103,13 +103,15 @@ It doesn't matter where you start. What matter is that you start.
 - Search through them
 
 # Getting Started with Phone book app
-- Install [Python](https://www.python.org/) 
+- Install [Python](https://www.python.org/)
 
-On linux(debian) python2 is installed by default, but I'd recommend installing Python3
+*On linux(debian) python2 is installed by default, but I'd recommend installing Python3*
 
     sudo apt-get install python3.6
 
 Then install `Django`
+- *You might need to set up your environment variables in Windows*
+- *Also I'd recommend using virtualenv*
 
     pip install Django
 
@@ -137,7 +139,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-in addressbook/models.py define your model as
+in `addressbook/models.py` define your model as
 ```python
 from django.db import models
 class Addressbook(models.Model):
@@ -145,7 +147,7 @@ class Addressbook(models.Model):
     name = models.CharField(max_length=256)
 ```
 
-in addressbook/views.py define your view as
+in `addressbook/views.py` define your view as
 ```python
 from django.views.generic.edit import CreateView
 from django.forms import ModelForm
