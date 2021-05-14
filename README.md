@@ -114,7 +114,94 @@ Then install `Django`
     pip install Django
 
 Then go ahead and start a new project 
-###### Preferably move to directory for your projects 
+*Preferably move to directory for your projects* 
 
     django-admin startproject phonebook
 
+then add a new app
+    
+    co phonebook
+    python manage.py startapp addressbook
+
+register you app in `phonebook/settings.py`
+
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'addressbook',
+]
+```
+
+in addressbook/models.py define your model as
+```python
+from django.db import models
+class Addressbook(models.Model):
+    phone_num = models.CharField(max_length=11)
+    name = models.CharField(max_length=256)
+```
+
+in addressbook/views.py define your view as
+```python
+from django.views.generic.edit import CreateView
+from django.forms import ModelForm
+from addressbook.models import Addressbook
+class PhonebookForm(ModelForm):
+    class Meta:
+        model = Addressbook
+        exclude = ['id']
+
+class AddressbookView(CreateView):
+    form_class = PhonebookForm
+    success_url = "/"
+    template_name = "index.html"
+    def get_context_data(self, **kwargs):
+        kwargs["object_list"] = Addressbook.objects.order_by("id")
+        return super(AddressbookView, self).get_context_data(**kwargs)
+```
+and create a file in `templates/index.html` with the following content
+```html
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Send message">
+</form>
+
+{% for phonebook in object_list %}
+    <p>{{ phonebook.name }} - {{ phonebook.phone_num }}</p>
+{% endfor %}
+```
+Register your template directory in `phonebook/settings.py` 
+
+```python
+import os
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [
+            os.path.join(BASE_DIR, "templates"), 
+          # by default nothing is registered so register your template directory here
+        ],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
+```
+
+then run 
+
+    python manage.py makemigrations
+    python manage.py migrate
+    python manage.py runserver
+
+open the browser in 127.0.0.1:8000
