@@ -204,4 +204,5 @@ then run
     python manage.py migrate
     python manage.py runserver
 
-open the browser in 127.0.0.1:8000
+open the browser in `127.0.0.1:8000`
+You can go ahead and style you view or go further and convert that to JSON endpoint using `djangorestframework`

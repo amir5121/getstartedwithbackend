@@ -1,0 +1,8 @@
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Send message">
+</form>
+
+{% for phonebook in object_list %}
+    <p>{{ phonebook.name }} - {{ phonebook.phone_num }}</p>
+{% endfor %}
