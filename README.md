@@ -104,29 +104,30 @@ Let's write a phone book app
 - You can extend it and add search functionality to it
 
 # Getting Started with Phone book app
-- Install [Python](https://www.python.org/)
+###Install [Python](https://www.python.org/)
 
 *On linux(debian) python2 is installed by default, but I'd recommend installing Python3*
 
     sudo apt-get install python3.6
 
-Then install `Django`
+###Then install `Django`
 - *You might need to set up your environment variables in Windows*
 - *Also I'd recommend using virtualenv*
 
+
     pip install Django
 
-Then go ahead and start a new project 
+###Start a new project 
 *Preferably move to directory for your projects* 
 
     django-admin startproject phonebook
 
-then add a new app
+###Add a new app
     
     co phonebook
     python manage.py startapp addressbook
 
-register you app in `phonebook/settings.py`
+###Register you app in `phonebook/settings.py`
 
 ```python
 INSTALLED_APPS = [
@@ -140,6 +141,7 @@ INSTALLED_APPS = [
 ]
 ```
 
+###Add your model
 in `addressbook/models.py` define your model as
 ```python
 from django.db import models
@@ -147,7 +149,7 @@ class Addressbook(models.Model):
     phone_num = models.CharField(max_length=11)
     name = models.CharField(max_length=256)
 ```
-
+### Add your view and form
 in `addressbook/views.py` define your view as
 ```python
 from django.views.generic.edit import CreateView
@@ -166,7 +168,8 @@ class AddressbookView(CreateView):
         kwargs["object_list"] = Addressbook.objects.order_by("id")
         return super(AddressbookView, self).get_context_data(**kwargs)
 ```
-and create a file in `templates/index.html` with the following content
+###Create your template for your view and register it
+Create a file in `templates/index.html` with the following content
 ```html
 <form method="post">{% csrf_token %}
     {{ form.as_p }}
@@ -201,7 +204,7 @@ TEMPLATES = [
 ]
 ```
 
-then run 
+###Migrate and run your project 
 
     python manage.py makemigrations
     python manage.py migrate
