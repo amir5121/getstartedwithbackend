@@ -114,8 +114,8 @@ Let's write a phone book app
 - *You might need to set up your environment variables in Windows*
 - *Also I'd recommend using virtualenv*
 
+      pip install Django
 
-    pip install Django
 
 ### Start a new project 
 *Preferably move to directory for your projects* 
