@@ -206,3 +206,14 @@ then run
 
 open the browser in `127.0.0.1:8000`
 You can go ahead and style you view or go further and convert that to JSON endpoint using `djangorestframework`
+
+
+#My final thoughts:
+- You should spend a lot of time learning
+- You will never have learned enough  
+- It's not the tools that creates a good developer it's 
+  - How good of a problem solver you are
+  - How patient are you?
+  - Facing new challenges
+  - Knowing what you need to complete a task.
+  - Experience (and this won't come in two or three days it will take years)
