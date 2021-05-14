@@ -104,30 +104,30 @@ Let's write a phone book app
 - You can extend it and add search functionality to it
 
 # Getting Started with Phone book app
-###Install [Python](https://www.python.org/)
+### Install [Python](https://www.python.org/)
 
 *On linux(debian) python2 is installed by default, but I'd recommend installing Python3*
 
     sudo apt-get install python3.6
 
-###Then install `Django`
+### Then install `Django`
 - *You might need to set up your environment variables in Windows*
 - *Also I'd recommend using virtualenv*
 
 
     pip install Django
 
-###Start a new project 
+### Start a new project 
 *Preferably move to directory for your projects* 
 
     django-admin startproject phonebook
 
-###Add a new app
+### Add a new app
     
     co phonebook
     python manage.py startapp addressbook
 
-###Register you app in `phonebook/settings.py`
+### Register you app in `phonebook/settings.py`
 
 ```python
 INSTALLED_APPS = [
@@ -141,7 +141,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-###Add your model
+### Add your model
 in `addressbook/models.py` define your model as
 ```python
 from django.db import models
@@ -168,7 +168,7 @@ class AddressbookView(CreateView):
         kwargs["object_list"] = Addressbook.objects.order_by("id")
         return super(AddressbookView, self).get_context_data(**kwargs)
 ```
-###Create your template for your view and register it
+### Create your template for your view and register it
 Create a file in `templates/index.html` with the following content
 ```html
 <form method="post">{% csrf_token %}
@@ -204,7 +204,7 @@ TEMPLATES = [
 ]
 ```
 
-###Migrate and run your project 
+### Migrate and run your project 
 
     python manage.py makemigrations
     python manage.py migrate
@@ -214,7 +214,7 @@ open the browser in `127.0.0.1:8000`
 You can go ahead and style you view or go further and convert that to JSON endpoint using `djangorestframework`
 
 
-#My final thoughts:
+# My final thoughts:
 - You should spend a lot of time learning
 - You will never have learned enough  
 - It's not the tools that creates a good developer it's 
